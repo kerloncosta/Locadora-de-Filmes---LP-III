@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ifrs.ibiruba.controller.FilmeController">
+
+    <padding>
+        <Insets bottom="16.0" left="20.0" right="20.0" top="16.0"/>
+    </padding>
+
+    <Label text="Catálogo de Filmes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="12.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="115.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="260.0"/>
+            <ColumnConstraints prefWidth="115.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="260.0"/>
+        </columnConstraints>
+
+        <Label text="Título *:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtTitulo" promptText="Ex: Interestelar"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Gênero *:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtGenero" promptText="Ex: Ficção Científica"
+                   GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+        <Label text="Diretor:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtDiretor" promptText="Ex: Christopher Nolan"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Ano:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtAno" promptText="Ex: 2014"
+                   GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+        <Label text="Valor Diária (R$) *:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtValorDiaria" promptText="Ex: 12,50"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Qtd. Disponível *:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtQuantidade" promptText="Ex: 5"
+                   GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Button fx:id="btnSalvar" text="Salvar" onAction="#onSalvar"
+                style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button fx:id="btnNovo" text="Limpar / Novo" onAction="#onNovo"/>
+        <Button fx:id="btnExcluir" text="Excluir Selecionado" onAction="#onExcluir"
+                style="-fx-background-color: #dc2626; -fx-text-fill: white;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <TextField fx:id="txtBusca" prefWidth="280.0" promptText="Buscar por título, gênero ou diretor..."/>
+    </HBox>
+
+    <TableView fx:id="tabelaFilmes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="55.0" text="ID"/>
+            <TableColumn fx:id="colTitulo" prefWidth="240.0" text="Título"/>
+            <TableColumn fx:id="colGenero" prefWidth="150.0" text="Gênero"/>
+            <TableColumn fx:id="colDiretor" prefWidth="180.0" text="Diretor"/>
+            <TableColumn fx:id="colAno" prefWidth="80.0" text="Ano"/>
+            <TableColumn fx:id="colValorDiaria" prefWidth="115.0" text="Diária"/>
+            <TableColumn fx:id="colQuantidade" prefWidth="100.0" text="Disponíveis"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="lblTotal" text="Total de filmes: 0" style="-fx-text-fill: #475569;"/>
+    </HBox>
+
+</VBox>

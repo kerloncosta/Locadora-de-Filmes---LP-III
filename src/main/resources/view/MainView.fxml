@@ -28,10 +28,7 @@
                 <fx:include source="ClientesView.fxml"/>
             </Tab>
             <Tab text="Catálogo de Filmes">
-                <StackPane>
-                    <Label text="Em Breve"
-                           style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
-                </StackPane>
+                <fx:include source="FilmesView.fxml"/>
             </Tab>
             <Tab text="Locações e Devoluções">
                 <StackPane>
