@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ifrs.ibiruba.controller.ClienteController">
+
+    <padding>
+        <Insets bottom="16.0" left="20.0" right="20.0" top="16.0"/>
+    </padding>
+
+    <Label text="Cadastro de Clientes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="12.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="90.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="280.0"/>
+            <ColumnConstraints prefWidth="90.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="280.0"/>
+        </columnConstraints>
+
+        <Label text="Nome *:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtNome" promptText="Nome completo do cliente"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="CPF *:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtCpf" promptText="000.000.000-00"
+                   GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+        <Label text="Telefone:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtTelefone" promptText="(54) 99999-9999"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="E-mail:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtEmail" promptText="cliente@email.com"
+                   GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Button fx:id="btnSalvar" text="Salvar" onAction="#onSalvar"
+                style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button fx:id="btnNovo" text="Limpar / Novo" onAction="#onNovo"/>
+        <Button fx:id="btnExcluir" text="Excluir Selecionado" onAction="#onExcluir"
+                style="-fx-background-color: #dc2626; -fx-text-fill: white;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <TextField fx:id="txtBusca" prefWidth="260.0" promptText="Buscar por nome ou CPF..."/>
+    </HBox>
+
+    <TableView fx:id="tabelaClientes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="60.0" text="ID"/>
+            <TableColumn fx:id="colNome" prefWidth="260.0" text="Nome"/>
+            <TableColumn fx:id="colCpf" prefWidth="150.0" text="CPF"/>
+            <TableColumn fx:id="colTelefone" prefWidth="150.0" text="Telefone"/>
+            <TableColumn fx:id="colEmail" prefWidth="240.0" text="E-mail"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="lblTotal" text="Total de clientes: 0" style="-fx-text-fill: #475569;"/>
+    </HBox>
+
+</VBox>
