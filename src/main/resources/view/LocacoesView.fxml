@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ifrs.ibiruba.controller.LocacaoController">
+
+    <padding>
+        <Insets bottom="16.0" left="20.0" right="20.0" top="16.0"/>
+    </padding>
+
+    <Label text="Nova Locação" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="12.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="135.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="260.0"/>
+            <ColumnConstraints prefWidth="145.0"/>
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="240.0"/>
+        </columnConstraints>
+
+        <Label text="Cliente *:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cbCliente" maxWidth="Infinity" promptText="Selecione o cliente"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Filme Disponível *:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cbFilme" maxWidth="Infinity" promptText="Selecione um filme em estoque"
+                  GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+        <Label text="Data de Retirada *:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <DatePicker fx:id="dpRetirada" maxWidth="Infinity"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Devolução Prevista *:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <DatePicker fx:id="dpDevolucaoPrevista" maxWidth="Infinity"
+                    GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox alignment="CENTER_LEFT" spacing="14.0">
+        <Button fx:id="btnRegistrarLocacao" text="Registrar Locação" onAction="#onRegistrarLocacao"
+                style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Label fx:id="lblValorPrevisto" text="Valor Previsto: R$ 0,00"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+    </HBox>
+
+    <Separator/>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Devolução Real:"/>
+        <DatePicker fx:id="dpDevolucaoReal" prefWidth="140.0"/>
+        <Button fx:id="btnRegistrarDevolucao" text="Registrar Devolução" onAction="#onRegistrarDevolucao"
+                style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Label text="Filtrar Status:"/>
+        <ComboBox fx:id="cbFiltroStatus" prefWidth="140.0"/>
+    </HBox>
+
+    <TableView fx:id="tabelaLocacoes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="50.0" text="ID"/>
+            <TableColumn fx:id="colCliente" prefWidth="190.0" text="Cliente"/>
+            <TableColumn fx:id="colFilme" prefWidth="190.0" text="Filme"/>
+            <TableColumn fx:id="colDataRetirada" prefWidth="105.0" text="Retirada"/>
+            <TableColumn fx:id="colDataPrevista" prefWidth="115.0" text="Prevista"/>
+            <TableColumn fx:id="colDataReal" prefWidth="105.0" text="Devolvido em"/>
+            <TableColumn fx:id="colValorTotal" prefWidth="100.0" text="Valor Total"/>
+            <TableColumn fx:id="colStatus" prefWidth="95.0" text="Status"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="lblTotal" text="Total de locações: 0" style="-fx-text-fill: #475569;"/>
+    </HBox>
+
+</VBox>
